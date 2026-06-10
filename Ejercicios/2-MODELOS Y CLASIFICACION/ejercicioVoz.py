@@ -15,8 +15,9 @@ from IPython.display import Audio
 audio, sr = sf.read('marita.wav')
 print(audio)
 print('Largo array:', len(audio))
-print('Frecuencia de Muestreo:',sr)
+print("Frecuencia de Muestreo:",sr)
 print('Duración:', len(audio)/sr)
 plt.plot(audio)
 plt.show()
 Audio(audio,rate=sr)
+# %%
