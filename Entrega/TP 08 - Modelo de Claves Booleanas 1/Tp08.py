@@ -2,16 +2,28 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
-# Descargar recursos necesarios (solo la primera vez)
-#nltk.download('punkt')
-#nltk.download('stopwords')
+#Consigna 1:
+#Crea un programa en Python que permita al usuario realizar búsquedas booleanas (AND, OR, NOT) en un
+#conjunto de documentos utilizando NLTK.
 
-# Documentos de ejemplo
+#-Se tienen 5 documentos con información sobre inteligencia artificial y aprendizaje automático.
+#   "doc1": "La inteligencia artificial está revolucionando la tecnología.",
+#   "doc2": "El aprendizaje automático es clave en la inteligencia artificial.",
+#   "doc3": "Procesamiento del lenguaje natural y redes neuronales.",
+#   "doc4": "Las redes neuronales son fundamentales en deep learning.",
+#   "doc5": "El futuro de la IA está en el aprendizaje profundo."
+
+#1)-Implementa una función que tokenice y limpie los documentos.
+#2) -Crea un índice invertido (asocia cada palabra clave a los documentos en los que aparece)
+#3) -Permite que el usuario ingrese una consulta booleana y devuelva los documentos relevantes.
+
+
 documents = {
-    "doc1": "La inteligencia artificial es el futuro de la tecnología.",
-    "doc2": "El aprendizaje automático es una rama de la inteligencia artificial.",
-    "doc3": "El procesamiento del lenguaje natural es un campo de la inteligencia artificial.",
-    "doc4": "Los algoritmos de Machine Learning permiten el aprendizaje de datos.",
+    "doc1": "La inteligencia artificial está revolucionando la tecnología.",
+    "doc2": "El aprendizaje automático es clave en la inteligencia artificial.",
+    "doc3": "Procesamiento del lenguaje natural y redes neuronales.",
+    "doc4": "Las redes neuronales son fundamentales en deep learning.",
+    "doc5": "El futuro de la IA está en el aprendizaje profundo."
 }
 
 # Preprocesamiento: Tokenización y eliminación de stopwords
@@ -62,8 +74,8 @@ for word, docs in index.items():
 print("\nConsulta: inteligencia AND artificial")
 print(boolean_search("inteligencia AND artificial"))  # Debería devolver doc1, doc2, doc3
 
-print("\nConsulta: aprendizaje OR machine")
-print(boolean_search("aprendizaje OR machine"))  # Debería devolver doc2, doc4
+print("\nConsulta: redes OR aprendizaje")
+print(boolean_search("redes OR aprendizaje"))  # Debería devolver doc2, doc4
 
-print("\nConsulta: inteligencia NOT aprendizaje")
-print(boolean_search("inteligencia NOT aprendizaje"))  # Debería devolver doc1, doc3
+print("\nConsulta: inteligencia NOT automático")
+print(boolean_search("inteligencia NOT automático"))  # Debería devolver doc1, doc3
